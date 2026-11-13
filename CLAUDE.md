@@ -42,6 +42,8 @@ after it runs `project.yaml` holds the real values.
 
 @.claude/docs/coordination-rules.md
 
+Dispatching Codex or Claude as Orca workers: read `.claude/docs/orchestration.md` on demand.
+
 ## Collaboration Protocol
 
 **User-driven collaboration, not autonomous execution.**

@@ -1,5 +1,11 @@
 # Security Policy
 
+> **Fork note (ccgs-orchestrate):** report a vulnerability in what this fork
+> adds or changes (`AGENTS.md`, `.claude/docs/orchestration.md` and anything
+> else that differs from upstream) through this repository's
+> [private vulnerability reporting](https://github.com/lukeydokey/ccgs-orchestrate/security/advisories/new).
+> Report anything in upstream CCGS code to upstream, as described below.
+
 ## Supported Versions
 
 Security fixes go to the newest 1.3.x release only. Forks and
