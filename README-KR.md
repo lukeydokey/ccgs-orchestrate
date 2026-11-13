@@ -194,6 +194,9 @@ git merge upstream/main
   지키도록 안내합니다.
 - Orca가 저장소를 `origin`이 아닌 다른 원격 기준으로 인식할 수 있습니다. 이 fork는
   `upstream` 기준으로 인식됐습니다. Orca에서 PR을 만들 때는 대상 저장소를 확인하세요.
+- CCGS 프로젝트에서 `/code-review`는 CCGS 스킬(명령 목록에 `(project)`로 표시)이 실행되고,
+  Claude Code 기본 `/code-review`는 가려집니다. CCGS 파일 수십 개가 이 이름으로 참조하고
+  있어서 이 fork는 이름을 바꾸지 않습니다.
 
 자세한 내용: [`.claude/docs/orchestration.md`](.claude/docs/orchestration.md#known-gaps)
 

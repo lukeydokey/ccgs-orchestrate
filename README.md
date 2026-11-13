@@ -199,6 +199,9 @@ git merge upstream/main
 - Orca may take a repository's identity from a remote other than `origin` (it
   chose `upstream` for this fork). Check the target before creating a pull
   request from Orca.
+- In a CCGS project, `/code-review` runs CCGS's skill (marked `(project)` in the
+  command list), which hides Claude Code's built-in `/code-review`. Dozens of
+  CCGS files refer to it by that name, so this fork keeps it.
 
 Details: [`.claude/docs/orchestration.md`](.claude/docs/orchestration.md#known-gaps).
 
