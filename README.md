@@ -105,6 +105,8 @@ this in Claude Code:
 The setting goes to `project.local.yaml`, which is gitignored. Personal
 permission rules go in `.claude/settings.local.json`; see
 [`.claude/docs/settings-local-template.md`](.claude/docs/settings-local-template.md).
+Both files are listed in `.worktreeinclude`, so Orca and Claude Code copy them
+into each new worktree.
 
 ## 5. Make the game
 
@@ -136,6 +138,9 @@ Use Codex with model <id> for this one.
 - Codex follows [`AGENTS.md`](AGENTS.md): it edits only the paths its task names
   and never commits.
 - One writer per worktree at a time; parallel work goes in child worktrees.
+- A new child worktree starts from the remote default branch (`origin/main`),
+  so push your commits first, or ask for it to start from your branch
+  (`--base-branch main`).
 - The task spec template and the details are in
   [`.claude/docs/orchestration.md`](.claude/docs/orchestration.md).
 
@@ -194,8 +199,6 @@ git merge upstream/main
 - Orca may take a repository's identity from a remote other than `origin` (it
   chose `upstream` for this fork). Check the target before creating a pull
   request from Orca.
-- Whether Orca copies gitignored local settings (`project.local.yaml`,
-  `.claude/settings.local.json`) into child worktrees is not verified yet.
 
 Details: [`.claude/docs/orchestration.md`](.claude/docs/orchestration.md#known-gaps).
 

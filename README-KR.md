@@ -103,6 +103,8 @@ CCGS는 기본적으로 파일을 쓰기 전마다 묻습니다. 나에게만 �
 이 설정은 git에 올라가지 않는 `project.local.yaml`에 저장됩니다. 개인 권한 규칙은
 `.claude/settings.local.json`에 넣습니다.
 [`.claude/docs/settings-local-template.md`](.claude/docs/settings-local-template.md)를 참고하세요.
+두 파일 모두 `.worktreeinclude`에 적혀 있어서, Orca와 Claude Code가 새 작업 폴더를 만들 때
+함께 복사합니다.
 
 ## 5. 게임 만들기
 
@@ -135,6 +137,8 @@ Codex한테 지금 변경 사항을 수정 없이 리뷰만 하고 결과를 보
   하지 않습니다.
 - 한 작업 폴더에서는 한 번에 한 워커만 파일을 수정합니다. 동시에 진행할 작업은 별도 작업
   폴더(child worktree)에서 합니다.
+- 새 작업 폴더는 원격 기본 브랜치(`origin/main`)에서 만들어집니다. 아직 push하지 않은
+  커밋이 있다면 먼저 push하거나, 내 브랜치에서 시작하도록 요청하세요(`--base-branch main`).
 - 작업 지시 템플릿과 자세한 내용은
   [`.claude/docs/orchestration.md`](.claude/docs/orchestration.md)에 있습니다.
 
@@ -190,8 +194,6 @@ git merge upstream/main
   지키도록 안내합니다.
 - Orca가 저장소를 `origin`이 아닌 다른 원격 기준으로 인식할 수 있습니다. 이 fork는
   `upstream` 기준으로 인식됐습니다. Orca에서 PR을 만들 때는 대상 저장소를 확인하세요.
-- Orca가 별도 작업 폴더를 만들 때, git에 올라가지 않는 로컬 설정(`project.local.yaml`,
-  `.claude/settings.local.json`)을 복사하는지는 아직 확인하지 않았습니다.
 
 자세한 내용: [`.claude/docs/orchestration.md`](.claude/docs/orchestration.md#known-gaps)
 

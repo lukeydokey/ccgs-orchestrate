@@ -48,6 +48,10 @@ orca orchestration worker-start --agent codex --worktree current --spec-file <sp
   writer: the coordinator sees the diff directly and commits it.
 - `--worktree new-child --name <short-name>`: an isolated worktree on its own
   branch, for parallel work. See [Commits](#commits).
+- A new worktree starts from the remote default branch (`origin/main` in
+  testing), not from your local branch, so unpushed commits are missing from
+  it. Push first, or pass `--base-branch <branch>` (for example
+  `--base-branch main`).
 - `--model <id>` and `--effort <level>`: choose a model per worker. This fork
   leaves the CCGS skill `model:` pins alone; worker models are chosen here.
 
@@ -92,10 +96,10 @@ the worker's own Orca tab stalls it until someone answers there. Either:
   `production/session-logs/decision-log.md`; `hotfix`, `gate-check`,
   `day-one-patch` and `setup-engine` ask anyway.
 
-`project.local.yaml` and `.claude/settings.local.json` are gitignored, so a
-`new-child` worktree may not have them. Claude Code copies the files listed in
-`.worktreeinclude` into the worktrees it creates. Whether Orca does the same is
-not verified yet; check before you rely on it.
+`project.local.yaml` and `.claude/settings.local.json` are gitignored. Both
+Claude Code and Orca (verified with Orca 1.4.257) copy the gitignored files
+listed in `.worktreeinclude` into the worktrees they create, so a `new-child`
+worktree gets your local settings as they were when it was created.
 
 ## Commits
 
